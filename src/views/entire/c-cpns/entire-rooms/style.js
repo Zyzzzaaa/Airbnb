@@ -17,7 +17,7 @@ export const RoomsWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
   }
-
+  /* 直接子元素设置白色蒙版 */
   > .cover {
     position: absolute;
     left: 0;

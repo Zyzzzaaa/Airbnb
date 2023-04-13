@@ -6,7 +6,7 @@ export default function useScrollPosition() {
   const [scrollX, setScrollX] = useState(0)
   const [scrollY, setScrollY] = useState(0)
 
-  // 监听window滚动
+  // 监听window滚动--节流
   useEffect(() => {
     const handleScroll = throttle(function() {
       setScrollX(window.scrollX)

@@ -7,14 +7,16 @@ import { TabsWrapper } from './style'
 const SectionTabs = memo((props) => {
   const { tabNames = [], tabClick } = props
   const [currentIndex, setCurrentIndex] = useState(0)
-
+  //更新currentIndex
   function itemClickHandle(index, item) {
     setCurrentIndex(index)
+    //传给父组件
     tabClick(index, item)
   }
 
   return (
     <TabsWrapper>
+      {/* 滚动 */}
       <ScrollView>
         {
           tabNames.map((item, index) => {

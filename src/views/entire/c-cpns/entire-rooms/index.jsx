@@ -13,9 +13,9 @@ const EntireRooms = memo(() => {
     isLoading: state.entire.isLoading
   }), shallowEqual)
 
-  /** 事件处理 */
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  // 路由跳转+派发action
   const itemClickHandle = useCallback((item) => {
     dispatch(changeDetailInfoAction(item))
     navigate("/detail")

@@ -25,7 +25,7 @@ const PictureBrowser = memo((props) => {
     }
   }, [])
 
-  /** 事件监听的逻辑 */
+  /** 关闭放大图片组件 */
   function closeBtnClickHandle() {
     if (closeClick) closeClick()
   }
@@ -46,12 +46,15 @@ const PictureBrowser = memo((props) => {
 
   return (
     <BrowserWrapper isNext={isNext} showList={showList}>
+      {/* 关闭按钮 */}
       <div className='top'>
         <div className='close-btn' onClick={closeBtnClickHandle}>
           <IconClose/>
         </div>
       </div>
+      {/* 轮播图 */}
       <div className='slider'>
+        {/* 左右箭头按钮 */}
         <div className='control'>
           <div className='btn left' onClick={e => controlClickHandle(false)}>
             <IconArrowLeft width="77" height="77"/>
@@ -60,6 +63,7 @@ const PictureBrowser = memo((props) => {
             <IconArrowRight width="77" height="77"/>
           </div>
         </div>
+        {/* 主体展示区 */}
         <div className='picture'>
           <SwitchTransition mode='in-out'>
             <CSSTransition
@@ -72,6 +76,7 @@ const PictureBrowser = memo((props) => {
           </SwitchTransition>
         </div>
       </div>
+      {/* 底层预览 */}
       <div className='preview'>
         <div className='info'>
           <div className='desc'>

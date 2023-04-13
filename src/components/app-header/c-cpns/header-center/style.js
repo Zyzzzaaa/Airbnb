@@ -51,7 +51,7 @@ export const CenterWrapper = styled.div`
       transform: translateX(-50%);
     }
   }
-
+  /* 搜索栏动画 */
   .detail-exit {
     transform: scale(1.0) translateY(0);
     opacity: 1;
@@ -73,7 +73,7 @@ export const CenterWrapper = styled.div`
     opacity: 1;
     transition: all 250ms ease;
   }
-
+  /* 最顶部动画 */
   .bar-enter {
     transform: scale(2.85714, 1.375) translateY(58px);
     opacity: 0;

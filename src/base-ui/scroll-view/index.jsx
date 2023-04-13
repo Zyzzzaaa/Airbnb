@@ -9,6 +9,7 @@ const ScrollView = memo((props) => {
   const [showLeft, setShowLeft] = useState(false)
   const [showRight, setShowRight] = useState(false)
   const [posIndex, setPosIndex] = useState(0)
+  // 记录隐藏宽度
   const totalDistanceRef = useRef()
 
   /** 组件渲染完毕, 判断是否显示右侧的按钮 */
@@ -17,18 +18,19 @@ const ScrollView = memo((props) => {
     const scrollWidth = scrollContentRef.current.scrollWidth // 一共可以滚动的宽度
     const clientWidth = scrollContentRef.current.clientWidth // 本身占据的宽度
     const totalDistance = scrollWidth - clientWidth
-    totalDistanceRef.current = totalDistance 
+    totalDistanceRef.current = totalDistance
     setShowRight(totalDistance > 0)
   }, [props.children])
 
-  /** 事件处理的逻辑 */
+  /** 左右箭头点击事件 */
   function controlClickHandle(isRight) {
     const newIndex = isRight ? posIndex + 1: posIndex - 1
     const newEl = scrollContentRef.current.children[newIndex]
     const newOffsetLeft = newEl.offsetLeft
     scrollContentRef.current.style.transform = `translate(-${newOffsetLeft}px)`
     setPosIndex(newIndex)
-    // 是否继续显示右侧的按钮
+    // 是否继续显示右侧和左侧的按钮
+    // console.log(newEl)
     setShowRight(totalDistanceRef.current > newOffsetLeft)
     setShowLeft(newOffsetLeft > 0)
   }
@@ -45,7 +47,7 @@ const ScrollView = memo((props) => {
           <IconArrowRight/>
         </div>
       ) }
-
+      {/* 使用插槽进行展示 */}
       <div className='scroll'>
         <div className='scroll-content' ref={scrollContentRef}>
           {props.children}

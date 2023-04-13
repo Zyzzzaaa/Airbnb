@@ -37,7 +37,6 @@ const HeaderRight = memo(() => {
       <div className='profile' onClick={profileClickHandle}>
         <IconMenu/>
         <IconAvatar/>
-
         { showPanel && (
           <div className='panel'>
             <div className='top'>

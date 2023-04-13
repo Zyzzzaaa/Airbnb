@@ -1,3 +1,4 @@
+//主题的配置
 const theme = {
   color: {
     primaryColor: "#ff385c",

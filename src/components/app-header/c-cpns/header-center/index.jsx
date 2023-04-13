@@ -11,14 +11,16 @@ const HeaderCenter = memo((props) => {
   const { isSearch, searchBarClick } = props
 
   const [tabIndex, setTabIndex] = useState(0)
+  // 获得模拟数据
   const titles = SearchTitles.map(item => item.title)
-
+  // 点击显示搜索模块
   function searchBarClickHandle() {
     if (searchBarClick) searchBarClick()
   }
 
   return (
     <CenterWrapper>
+      {/* 无搜索栏弹出时 */}
       <CSSTransition
         in={!isSearch}
         classNames="bar"
@@ -34,6 +36,7 @@ const HeaderCenter = memo((props) => {
           </div>
         </div>
       </CSSTransition>
+      {/* 正常搜索栏 */}
       <CSSTransition
         in={isSearch}
         classNames="detail"

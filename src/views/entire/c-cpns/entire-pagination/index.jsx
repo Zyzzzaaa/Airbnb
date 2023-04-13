@@ -12,7 +12,6 @@ const EntirePagination = memo(() => {
     roomList: state.entire.roomList
   }), shallowEqual)
 
-  // 小算法:必须掌握
   const totalPage = Math.ceil(totalCount / 20)
   const startCount = currentPage * 20 + 1
   const endCount = (currentPage + 1) * 20
@@ -22,8 +21,7 @@ const EntirePagination = memo(() => {
   function pageChangeHandle(event, pageCount) {
     // 回到顶部
     window.scrollTo(0, 0)
-    // 更新最新的页码: redux => currentPage
-    // dispatch(changeCurrentPageAction(pageCount - 1))
+    // 更新最新的页码并获取数据
     dispatch(fetchRoomListAction(pageCount - 1))
   }
 

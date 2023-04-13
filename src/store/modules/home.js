@@ -1,6 +1,6 @@
 import { getHomeDiscountData, getHomeGoodPriceData, getHomeHighScoreData, getHomeHotRecommendData, getHomeLongforData, getHomePlusData } from '@/services'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-
+//发送异步请求，调试工具看到的名称=>fetchdata
 export const fetchHomeDataAction = createAsyncThunk("fetchdata", (payload, { dispatch }) => {  
   getHomeGoodPriceData().then(res => {
     dispatch(changeGoodPriceInfoAction(res))
@@ -53,11 +53,6 @@ const homeSlice = createSlice({
       state.plusInfo = payload
     }
   },
-  extraReducers: {
-    // [fetchHomeDataAction.fulfilled](state, { payload }) {
-    //   state.goodPriceInfo = payload
-    // }
-  }
 })
 
 export const { 

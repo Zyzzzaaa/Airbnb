@@ -18,8 +18,9 @@ const AppHeader = memo(() => {
   }), shallowEqual)
   const { isFixed, topAlpha } = headerConfig
 
-  /** 监听滚动的监听 */
+  /** 监听滚动 */
   const { scrollY } = useScrollPosition()
+  // 记录滚动Y
   const prevY = useRef(0)
   // 在正常情况的情况下(搜索框没有弹出来), 不断记录值
   if (!isSearch) prevY.current = scrollY
@@ -34,11 +35,13 @@ const AppHeader = memo(() => {
     <ThemeProvider theme={{isAlpha}}>
       <HeaderWrapper className={classNames({ fixed: isFixed })}>
         <div className='content'>
+          {/* 顶部 */}
           <div className='top'>
             <HeaderLeft/>
             <HeaderCenter isSearch={ isAlpha || isSearch} searchBarClick={e => setIsSearch(true)}/>
             <HeaderRight/>
           </div>
+          {/* 搜索栏 */}
           <SearchAreaWrapper isSearch={ isAlpha || isSearch}/>
         </div>
         { isSearch && <div className='cover' onClick={e => setIsSearch(false)}></div> }

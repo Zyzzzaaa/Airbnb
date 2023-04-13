@@ -6,12 +6,13 @@ import useScrollTop from './hooks/useScrollTop'
 import routes from './router'
 
 const App = memo(() => {
+  //自定义hook
   useScrollTop()
 
   return (
     <div className='app'>
-      <h2>哈哈哈哈</h2>
       <AppHeader/>
+      {/* 路由懒加载 */}
       <Suspense fallback="loading">
         <div className='page'>
           {useRoutes(routes)}

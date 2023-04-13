@@ -25,7 +25,7 @@ const Home = memo(() => {
   /** 派发异步的事件: 发送网络请求 */
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchHomeDataAction("xxxx"))
+    dispatch(fetchHomeDataAction())
     dispatch(changeHeaderConfigAction({ isFixed: true, topAlpha: true }))
   }, [dispatch])
 
@@ -33,12 +33,6 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner/>
       <div className='content'>
-        {/* 折扣数据 */}
-        {/* <div className='discount'>
-          <SectionHeader title={discountInfo.title} subtitle={discountInfo.subtitle}/>
-          <SectionTabs tabNames={tabNames} tabClick={tabClickHandle}/>
-          <SectionRooms roomList={discountInfo.dest_list?.[name]} itemWidth="33.33333%"/>
-        </div> */}
         { isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo}/>}
         { isEmptyO(recommendInfo) && <HomeSectionV2 infoData={recommendInfo}/>}
         { isEmptyO(longforInfo) && <HomeLongfor infoData={longforInfo}/> }

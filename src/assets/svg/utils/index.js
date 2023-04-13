@@ -1,3 +1,4 @@
+//内联样式改成对象格式
 function styleStrToObject(styleStr) {
   const obj = {}
   const s = styleStr.toLowerCase().replace(/-(.)/g, function (m, g) {

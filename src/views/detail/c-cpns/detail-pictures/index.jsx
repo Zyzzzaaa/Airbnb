@@ -38,6 +38,7 @@ const DetailPictures = memo(() => {
       { showBrowser && (
         <PictureBrowser 
           pictureUrls={detailInfo.picture_urls} 
+          // 在子组件中判断何时被调用
           closeClick={e => setShowBrowser(false)}
         /> 
       )}

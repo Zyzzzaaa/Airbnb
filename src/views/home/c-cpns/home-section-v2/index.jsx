@@ -15,11 +15,8 @@ const HomeSectionV2 = memo((props) => {
   const initialName = Object.keys(infoData.dest_list)[0]
   const [name, setName] = useState(initialName)
   const tabNames = infoData.dest_address?.map(item => item.name)
-  // useEffect(() => {
-  //   setName("xxxxx")
-  // }, [infoData])
-
-  /** 事件处理函数 */
+ 
+  /** 子传父点击的tabs */
   const tabClickHandle = useCallback(function (index, name) {
     setName(name)
   }, [])

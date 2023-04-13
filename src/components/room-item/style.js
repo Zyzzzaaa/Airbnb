@@ -103,7 +103,7 @@ export const ItemWrapper = styled.div`
   .name {
     font-size: 16px;
     font-weight: 700;
-
+    cursor: pointer;
     overflow: hidden;  
     text-overflow: ellipsis; 
     display: -webkit-box; 
